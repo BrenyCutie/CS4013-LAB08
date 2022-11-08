@@ -1,44 +1,73 @@
-public abstract class GeometricObject {
-  protected String color;
-  protected double weight;
+import java.awt.geom.Area;
 
-  // Default construct
-  protected GeometricObject() {
-    color = "white";
-    weight = 1.0;
-  }
+public abstract class GeometricObject implements Comparable<Area> {
+    protected String color;
+    protected double weight;
+    protected double area;
 
-  // Construct a geometric object
-  protected GeometricObject(String color, double weight) {
-    this.color = color;
-    this.weight = weight;
-  }
+    // Default construct
+    protected GeometricObject() {
+        color = "white";
+        weight = 1.0;
+    }
 
-  // Getter method for color
-  public String getColor() {
-    return color;
-  }
+    // Construct a geometric object
+    protected GeometricObject(String color, double weight) {
+        this.color = color;
+        this.weight = weight;
+    }
 
-  // Setter method for color
-  public void setColor(String color) {
-    this.color = color;
-  }
+    // Getter method for color
+    public String getColor() {
+        return color;
+    }
 
-  // Getter method for weight
-  public double getWeight() {
-    return weight;
-  }
+    // Setter method for color
+    public void setColor(String color) {
+        this.color = color;
+    }
 
-  // Setter method for weight
-  public void setWeight(double weight) {
-    this.weight = weight;
-  }
+    // Getter method for weight
+    public double getWeight() {
+        return weight;
+    }
 
-  // Abstract method
-  public abstract double getArea();
+    // Setter method for weight
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
 
-  // Abstract method
-  public abstract double getPerimeter();
-  
- 
+    // Abstract method
+    public abstract double getArea();
+
+    // Abstract method
+    public abstract double getPerimeter();
+
+
+    //Modify the GeometricObject class to implement the Comparable interface (Compare
+    //GeometricObjects based on their area). Thus GeometricObject should implement:
+    //public int compareTo(GeometricObject o)
+    public int compareTo(GeometricObject o) {
+        if (area >= o.area) {
+            return 1;
+        } else if (area <= o.area) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+
+    //Define a static max method in the GeometricObject class for finding the larger of two
+    //Geometric Objects. In this method use the compareTo method to determine the larger of
+    //the two objects.
+    //public static GeometricObject max (GeometricObject o1, GeometricObject o2)
+    public static GeometricObject max(GeometricObject o1, GeometricObject o2) {
+        if (o1.getArea() >= (o2.getArea())) {
+            return o1;
+        } else {
+            return o2;
+        }
+
+    }
 }
