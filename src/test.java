@@ -7,8 +7,8 @@ public class test {
         GeometricObject uwu = new Circle(1);
         GeometricObject owo = new Rectangle(1, 1);
 
-        System.out.println("Shape 1 : " + uwu.toString());
-        System.out.println("Shape 2 : " + owo.toString());
+        System.out.println("Shape 1 : " + uwu);
+        System.out.println("Shape 2 : " + owo);
 
         System.out.println(GeometricObject.max(owo, uwu));
         System.out.println(GeometricObject.max(uwu, owo));
@@ -16,11 +16,11 @@ public class test {
 
         // Write a test program that creates an array of five GeometricObjects. For each object in the
         //array, invoke its howToColor method if it is Colorable.
-        GeometricObject[] shapes = {new Rectangle(1,2), new Circle(1), new Circle(1), new square(1),new Circle(4)};
+        GeometricObject[] shapes = {new Rectangle(1,2), new square(1), new Circle(1), new square(1),new Circle(4)};
 
         for (GeometricObject p:shapes) {
             if(p instanceof Colorable){
-                ((square)p).howToColor();
+                ((Colorable)p).howToColor();
             }
         }
     }

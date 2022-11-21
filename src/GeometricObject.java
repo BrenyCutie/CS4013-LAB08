@@ -48,12 +48,13 @@ public abstract class GeometricObject implements Comparable<Area> {
     //GeometricObjects based on their area). Thus GeometricObject should implement:
     //public int compareTo(GeometricObject o)
     public int compareTo(GeometricObject o) {
-        if (area >= o.area) {
-            return 1;
-        } else if (area <= o.area) {
-            return -1;
-        } else {
+        double res = getArea() - o.getArea();
+        if (res == 0) {
             return 0;
+        } else if (res > 0) {
+            return 1;
+        } else {
+            return -1;
         }
     }
 
@@ -63,7 +64,7 @@ public abstract class GeometricObject implements Comparable<Area> {
     //the two objects.
     //public static GeometricObject max (GeometricObject o1, GeometricObject o2)
     public static GeometricObject max(GeometricObject o1, GeometricObject o2) {
-        if (o1.getArea() >= (o2.getArea())) {
+        if (o1.compareTo(o2) == 1){
             return o1;
         } else {
             return o2;
